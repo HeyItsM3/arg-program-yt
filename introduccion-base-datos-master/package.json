@@ -1,0 +1,43 @@
+{
+  "name": "introduccion-base-datos",
+  "version": "1.0.0",
+  "description": "Introducción  a las bases de datos de r/argentina programa",
+  "scripts": {
+    "concurrency": "node ./concurrency/filesystem/concurrency.js",
+    "concurrency:test": "run-p concurrency concurrency concurrency concurrency",
+    "concurrency:db": "node ./concurrency/sqlite/concurrency.db.js",
+    "concurrency:db:test": "run-p concurrency:db concurrency:db concurrency:db concurrency:db",
+    "orm:01": "node ./orm/orm_01/index.js",
+    "orm:02": "node ./orm/orm_02/index.js",
+    "orm:02:generar-modelos": "sequelize-auto -h localhost -d './sample.db' --dialect sqlite -o './orm/orm_02/modelos/prueba'",
+    "orm:02:migraciones": "sequelize-cli db:migrate --config=./orm/orm_02/config.js --migrations-path=./orm/migrations --env=development",
+    "orm:03": "node ./orm/orm_03/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r-argentina-programa/introduccion-base-datos.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/r-argentina-programa/introduccion-base-datos/issues"
+  },
+  "homepage": "https://github.com/r-argentina-programa/introduccion-base-datos#readme",
+  "devDependencies": {
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.0.5",
+    "sequelize-auto": "^0.5.4",
+    "sequelize-cli": "^6.2.0"
+  },
+  "dependencies": {
+    "better-sqlite3": "^7.1.0",
+    "chalk": "^4.1.0",
+    "sequelize": "^6.3.4",
+    "sqlite3": "^5.0.0"
+  }
+}
